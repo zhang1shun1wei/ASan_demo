@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/bt_btton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="JAVA层调用JNI层逻辑"
+        tools:ignore="MissingConstraints" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/bt_btton1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JNI层调用JAVA层逻辑"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:layout_weight="1"
+        android:id="@+id/bt_btton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="验证底层crash"
+        tools:ignore="MissingConstraints" />
+
+</LinearLayout>
