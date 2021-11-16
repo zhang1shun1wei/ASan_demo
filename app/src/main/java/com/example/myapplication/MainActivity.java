@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.myapplication12.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +27,16 @@ public class MainActivity extends AppCompatActivity {
         mButton = findViewById(R.id.bt_btton);
         mButton1 = findViewById(R.id.bt_btton1);
         mButton2 = findViewById(R.id.bt_btton2);
+
+        mButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String str1 = getStr1();
+                mButton.setText(str1);
+                Toast.makeText(MainActivity.this, str1, Toast.LENGTH_SHORT);
+            }
+        });
+
         mButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,21 +44,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getStr1();
-            }
-        });
-
         mButton2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
-                需要把这两行代码注释去掉即可
-                #target_compile_options(native-lib PUBLIC -fsanitize=address -fno-omit-frame-pointer)
-                #set_target_properties(native-lib PROPERTIES LINK_FLAGS -fsanitize=address)
-                 */
                 ProveCrash();
             }
         });

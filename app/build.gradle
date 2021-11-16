@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.0"
 
     defaultConfig {
-        applicationId "com.example.myapplication"
+        applicationId "com.example.myapplication12"
         minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
@@ -15,12 +15,7 @@ android {
 
         externalNativeBuild {
             cmake {
-                arguments "-DANDRIOD_TOOLCHAIN=clang"
-                arguments "-DANDROID_STL=c++_static"
-                arguments "-DANDROID_CPP_FEATURES=rtti;exceptions"
-                arguments "-DTBT_PLATFORM=android"
-                arguments "-DMASON_PLATFORM=android"
-                arguments "-DWITH_NDK_18=OFF"
+                arguments "-DANDROID_STL=c++_shared"
             }
         }
 
@@ -43,24 +38,13 @@ android {
 
     buildTypes {
         debug {
-            externalNativeBuild {
-                cmake {
-                    abiFilters "armeabi-v7a","arm64-v8a","x86"
-                }
-            }
             minifyEnabled false
             debuggable true
             jniDebuggable true
-            sourceSets.debug.jniLibs.srcDir "sanitizer/jniLibs"
-            sourceSets.debug.resources.srcDir("sanitizer")
-            sourceSets.debug.resources.filter.exclude("sanitizer/jniLibs/**")
+//            sourceSets.debug.jniLibs.srcDir "src/jniLibs/arm64-v8a"
+//            sourceSets.debug.resources.filter.exclude("src/jniLibs/arm64-v8a/**")
         }
         release {
-            externalNativeBuild {
-                cmake {
-                    abiFilters "armeabi-v7a","arm64-v8a","x86"
-                }
-            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
